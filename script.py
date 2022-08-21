@@ -34,7 +34,7 @@ def create_commendation(schoolkid, lesson):
                                 teacher=lesson.teacher)
 
 
-name = "Пахомов Викентий"
+name = "Фролов Иван"
 subject = "Математика"
 fix_marks(name)
 remove_chastisements(name)
