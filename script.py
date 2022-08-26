@@ -1,6 +1,6 @@
 import random
 
-from datacenter.models import Schoolkid, Mark, Chastisement, Lesson, Subject, Commendation
+from datacenter.models import Schoolkid, Mark, Chastisement, Lesson, Commendation
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 
 
@@ -13,7 +13,7 @@ def fix_marks(schoolkid):
     except MultipleObjectsReturned:
         print("Проверьте правильность введенных ФИО ученика")
         return
-    points = Mark.objects.filter(schoolkid=child, points__in=[2, 3]).update(points=5)
+    Mark.objects.filter(schoolkid=child, points__in=[2, 3]).update(points=5)
 
 
 def remove_chastisements(schoolkid):
@@ -25,8 +25,7 @@ def remove_chastisements(schoolkid):
     except MultipleObjectsReturned:
         print("Проверьте правильность введенных ФИО ученика")
         return
-    all_chastisements = Chastisement.objects.filter(schoolkid=child)
-    all_chastisements.delete()
+    Chastisement.objects.filter(schoolkid=child).delete()
 
 
 def create_commendation(schoolkid, lesson):
