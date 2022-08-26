@@ -13,10 +13,7 @@ def fix_marks(schoolkid):
     except MultipleObjectsReturned:
         print("Проверьте правильность введенных ФИО ученика")
         return
-    points = Mark.objects.filter(schoolkid=child, points__in=[2, 3])
-    for record in points:
-        record.points = 5
-        record.save()
+    points = Mark.objects.filter(schoolkid=child, points__in=[2, 3]).update(points=5)
 
 
 def remove_chastisements(schoolkid):
