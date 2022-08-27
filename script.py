@@ -56,8 +56,14 @@ def create_commendation(schoolkid, lesson):
                                 teacher=lesson.teacher)
 
 
-name = "Фролов Иван"
-subject = "Математика"
-fix_marks(name)
-remove_chastisements(name)
-create_commendation(name, subject)
+def main():
+    name = "Фролов Иван"
+    subject = "Математика"
+    fix_marks(name)
+    remove_chastisements(name)
+    create_commendation(name, subject)
+
+
+if __name__ == '__main__':
+    main()
+
